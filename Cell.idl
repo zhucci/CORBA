@@ -1,0 +1,15 @@
+module Cell{
+	interface TubeCallback {
+		/* Get message "message" from "fromNum" */
+		long sendSMS (in string fromNum, in string message);
+		/* Give the number */
+		string getNum();
+    };
+	
+	interface Station {
+		/* Assign to the station a cellphone with number "phoneNum" */
+		long register (in TubeCallback objRef, in string phoneNum);
+		/* Redirect a message "message" from "fromNum" to "toNum" */
+		long sendSMS (in string fromNum, in string toNum, in string message);
+    };
+};
