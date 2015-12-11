@@ -15,7 +15,7 @@ class TubeCallbackServant extends TubeCallbackPOA {
 
 	// Treating a received message
 	public int sendSMS(String fromNum, String message) {
-		System.out.println(myNum+": A message received from ( "+fromNum+" ). Message body : "+message);
+		System.out.println(myNum +": A message received from ( "+fromNum+" ). Message body : "+message);
 		return (0);
 	};
  
@@ -43,6 +43,8 @@ public class Tube {
 
 	public static void main(String args[]) {
 		try {
+		    if(args.length==0)
+                        System.out.println("Argument error");
 			String myNum = args[0];
 
 			ORB orb = ORB.init(args, null);

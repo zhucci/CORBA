@@ -1,20 +1,21 @@
+//Create ORB interface files
 idlj -fall Cell.idl
+
+//Compile java 
 javac Cell/*.java
+
 javac StationServer.java
-javac StationServer2.java
+
 javac Tube.java
-javac Tube1.java
-javac Tube2.java
-javac Tube3.java
+
+//Run Server
 orbd -ORBInitialPort 1050 -ORBInitialHost localhost &
 java StationServer2 -ORBInitialPort 1050 -ORBInitialHost localhost
 
-Next part is used on the other terminal machines.
+//Next part is used on the other terminal machines.
 
-java StationServer -ORBInitialPort 1050 -ORBInitialHost localhost
-java Tube -ORBInitialPort 1050 -ORBInitialHost localhost
-java Tube1 -ORBInitialPort 1050 -ORBInitialHost localhost
-java Tube2 -ORBInitialPort 1050 -ORBInitialHost localhost
-java Tube3 -ORBInitialPort 1050 -ORBInitialHost localhost
+java Tube <phone number> -ORBInitialPort 1050 -ORBInitialHost localhost
+//Send message
+<phone number>:<test of message>\n
 
 Send from second station to the first one, not otherwise.
